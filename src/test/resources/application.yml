@@ -1,0 +1,23 @@
+#테스트 수행 시 test 폴더 내 application.yml이 우선권을 가진다.
+#테스트 시 메모리디비 사용하는 법..
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        # show_sql: true
+        format_sql: true
+
+#위 설정이 다 없어도 스프링부트에서 자체적으로 메모리디비로 실행시킨다.
+
+logging.level:
+  org.hibernate.SQL: debug
+  #쿼리 파라미터
+  org.hibernate.type: trace
